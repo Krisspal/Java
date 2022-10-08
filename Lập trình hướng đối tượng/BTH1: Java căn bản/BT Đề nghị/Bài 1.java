@@ -16,8 +16,7 @@ public class Main{
 			}
 			else {
 				System.out.println("Ban da tra loi dung!");
-				break;
-				}
+			}
 			}while (n != result);
 		System.out.println("So lan doan: " + count + " lan");
 	}
