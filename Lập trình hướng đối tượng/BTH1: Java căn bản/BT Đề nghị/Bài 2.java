@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class main1 {
+public class Bai2 {
 	public static void main(String[] args) throws FileNotFoundException {
 		// Cau a
 		String email;
