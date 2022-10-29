@@ -1,118 +1,125 @@
 import java.util.Scanner;
 
-public class main {
+public class Practice2 {
 
-	static void tinhTongDong(int a[][], int m, int n) {
-
+	static void tinhTongDong(int arr[][], int m, int n) {
 		for (int i = 0; i < m; i++) {
 			int tong = 0;
 			for (int j = 0; j < n; j++) {
-				tong += a[i][j];
+				tong += arr[i][j];
 			}
-			System.out.println("Tong hang " + i + " la: " + tong);
+			System.out.println("Tong dong " + i + " la: " + tong);
 		}
-
 	}
 
-	static void tinhTongCot(int a[][], int m, int n) {
-
-		for (int i = 0; i < m; i++) {
+	static void tinhTongCot(int arr[][], int m, int n) {
+		for (int i = 0; i < n; i++) {
 			int tong = 0;
-			for (int j = 0; j < n; j++) {
-				tong += a[j][i];
+			for (int j = 0; j < m; j++) {
+				tong += arr[j][i];
 			}
 			System.out.println("Tong cot " + i + " la: " + tong);
 		}
-
 	}
 
-	static void timTongDongLonNhat(int a[][], int m, int n) {
-		int max = 0;
-		int chisodong = 0;
+	static void timTongDongLonNhat(int arr[][], int m, int n) {
+		int max = -2147483647;
+		int vitridong = 0;
 		for (int i = 0; i < m; i++) {
 			int tong = 0;
 			for (int j = 0; j < n; j++) {
-				tong += a[i][j];
+				tong += arr[i][j];
 			}
 			if (tong > max) {
 				max = tong;
-				chisodong = i;
+				vitridong = i;
 			}
+
 		}
-		System.out.println("Dong co tong lon nhat la dong " + chisodong);
+		System.out.println("Dong co tong lon nhat la dong: " + vitridong);
 	}
 
-	static void timTongCotNhoNhat(int a[][], int m, int n) {
-		int min = 0;
-		int chisocot = 0;
-		for (int j = 0; j < n; j++) {
+	static void timTongCotNhoNhat(int arr[][], int m, int n) {
+		int min = 2147483647;
+		int vitricot = 0;
+		for (int i = 0; i < n; i++) {
 			int tong = 0;
-			for (int i = 0; i < m; i++) {
-				tong += a[j][i];
+			for (int j = 0; j < m; j++) {
+				tong += arr[j][i];
 			}
 			if (tong < min) {
 				min = tong;
-				chisocot = j;
+				vitricot = i;
 			}
 		}
-		System.out.println("Cot co tong nho nhat la dong " + chisocot);
+		System.out.println("Cot co tong nho nhat la cot: " + vitricot);
 	}
 
-	static void tinhTongDongTimMinDong(int a[][], int m, int n, int d) {
+	static void tinhTongDongTimMinDong(int arr[][], int m, int n, int d) {
 		int tong = 0;
 		int min = 2147483647;
 
 		for (int j = 0; j < n; j++) {
-			tong += a[d][j];
-			if (min > a[d][j]) {
-				min = a[d][j];
+			tong += arr[d][j];
+			if (min > arr[d][j]) {
+				min = arr[d][j];
 			}
 		}
-		System.out.println("Tong hang " + d + " la: " + tong);
-		System.out.println("Min dong " + d + " la " + min);
+		System.out.println("Tong dong " + d + " la: " + tong);
+		System.out.println("Min dong " + d + " la: " + min);
 	}
 
-	static void tinhTongCotTimMaxDong(int a[][], int m, int n, int c) {
+	static void tinhTongCotTimMaxCot(int arr[][], int m, int n, int c) {
 		int tong = 0;
 		int max = -2147483647;
 
-		for (int j = 0; j < n; j++) {
-			tong += a[j][c];
-			if (max < a[j][c]) {
-				max = a[j][c];
+		for (int j = 0; j < m; j++) {
+			tong += arr[j][c];
+			if (max < arr[j][c]) {
+				max = arr[j][c];
 			}
 		}
-		System.out.println("Tong hang " + c + " la: " + tong);
-		System.out.println("Min dong " + c + " la " + max);
+		System.out.println("Tong cot " + c + " la: " + tong);
+		System.out.println("Max cot " + c + " la: " + max);
 	}
 
 	public static void main(String[] args) {
-		System.out.println("Hello");
-		Scanner scan = new Scanner(System.in);
-		int m = scan.nextInt();
-		int n = scan.nextInt();
-
-		int a[][] = new int[m][n];
+		System.out.println("* Bai tap 4 - Bai Thuc Hanh 1 *");
+		System.out.println("Chi so dong va cot bat dau tu 0");
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Nhap so dong cua mang: ");
+		int m = scanner.nextInt();
+		System.out.print("Nhap so cot cua mang: ");
+		int n = scanner.nextInt();
+		int[][] arr = new int[m][n];
+		
 		for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++) {
-				System.out.print("Nhap phan tu a[" + i + "][" + j + "]:");
-				a[i][j] = scan.nextInt();
+				//System.out.print("arr[" + i + "][" + j + "]: ");
+				//arr[i][j] = scanner.nextInt();
+				arr[i][j] = (int ) (Math.random() * 100 + 1);
 			}
 		}
 
+		System.out.println("Cac phan tu cua mang la: ");
 		for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++) {
-				System.out.print(a[i][j] + "\t");
+				System.out.print(arr[i][j] + "\t");
 			}
 			System.out.println();
 		}
-
-		tinhTongDong(a, m, n);
-		tinhTongCot(a, m, n);
-		timTongDongLonNhat(a, m, n);
-		timTongCotNhoNhat(a, m, n);
-		tinhTongDongTimMinDong(a, m, n, 2);
-		tinhTongCotTimMaxDong(a, m, n, 1);
+		
+		tinhTongDong(arr, m, n);
+		tinhTongCot(arr, m, n);
+		timTongDongLonNhat(arr, m, n);
+		timTongCotNhoNhat(arr, m, n);
+		System.out.println("Nhap chi so dong muon tinh tong va tim min: ");
+		int d = scanner.nextInt();
+		tinhTongDongTimMinDong(arr, m, n, d);
+		System.out.println("Nhap chi so cot muon tinh tong va tim max: ");
+		int c = scanner.nextInt();
+		tinhTongCotTimMaxCot(arr, m, n, c);
 
 	}
+
 }
